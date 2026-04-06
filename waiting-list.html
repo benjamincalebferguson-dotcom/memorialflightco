@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Waiting List — Memorial Flight Co</title>
+  <meta name="description" content="Join the Melbourne waiting list for Memorial Flight Co. Limited availability across the Mornington Peninsula and surrounding coastal areas." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────── -->
+  <nav id="nav" class="scrolled">
+    <a href="index.html" class="nav__logo" style="color: var(--charcoal);">Memorial Flight Co</a>
+    <ul class="nav__links">
+      <li><a href="faq.html" style="color: var(--mid);">FAQ</a></li>
+      <li><a href="waiting-list.html" class="nav__cta" style="border-color: var(--ocean); color: var(--ocean) !important;">Join the waiting list</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Header ────────────────────────────────── -->
+  <div class="page-header">
+    <div class="container">
+      <h1>Join the Melbourne waiting list</h1>
+      <p>
+        We are currently offering limited availability as we launch in Victoria.
+        Submit your details and we'll be in touch.
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Form ───────────────────────────────────────── -->
+  <section class="form-section section--white">
+    <div class="container">
+      <div class="form-wrap">
+
+        <form id="waitingListForm" novalidate>
+
+          <div class="form-group">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="04xx xxx xxx" />
+          </div>
+
+          <div class="form-group">
+            <label for="suburb">Suburb / Location</label>
+            <input type="text" id="suburb" name="suburb" placeholder="e.g. Frankston, Sorrento, Brighton" />
+          </div>
+
+          <div class="form-group">
+            <label for="timing">When are you planning?</label>
+            <select id="timing" name="timing">
+              <option value="" disabled selected>Select an option</option>
+              <option value="immediately">Immediately</option>
+              <option value="1-3-months">Within 1–3 months</option>
+              <option value="exploring">Just exploring</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="enquiryType">Type of enquiry</label>
+            <select id="enquiryType" name="enquiryType">
+              <option value="" disabled selected>Select an option</option>
+              <option value="ash-scattering">Ash scattering</option>
+              <option value="general">General enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span style="font-weight: 300; text-transform: none; letter-spacing: 0;">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Any additional details or questions…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Submit enquiry</button>
+
+          <p class="form-note">We treat all enquiries with complete discretion and privacy.</p>
+
+          <div class="form-success" id="formSuccess">
+            Thank you — we'll be in touch shortly.
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────── -->
+  <footer>
+    <p class="footer__logo">Memorial Flight Co</p>
+    <ul class="footer__nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="waiting-list.html">Waiting list</a></li>
+    </ul>
+    <p>Melbourne &amp; Mornington Peninsula &nbsp;·&nbsp; &copy; 2026 Memorial Flight Co</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
