@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Memorial Flight Co</title>
-  <meta name="description" content="Contact Memorial Flight Co to request a private call, enquire about a memorial ceremony, or discuss funeral director partnership opportunities." />
+  <meta name="description" content="Contact Memorial Flight Co to request a call, enquire about a memorial ceremony, or discuss funeral director partnership opportunities." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -20,17 +20,18 @@
         <li><a href="contact.html" class="nav__link nav__link--active-dark">Contact</a></li>
       </ul>
       <div class="nav__actions">
+        <a href="tel:+61478003959" class="nav__contact">+61 478 003 959</a>
         <a href="funeral-directors.html" class="btn btn--nav-secondary-dark">For Funeral Directors</a>
-        <a href="contact.html?type=call" class="btn btn--nav-primary-dark">Request a Private Call</a>
+        <a href="contact.html?type=call" class="btn btn--nav-primary-dark">Request a Call</a>
       </div>
     </div>
   </nav>
 
   <div class="page-header page-header--contact">
     <div class="container">
-      <p class="section-label section-label--light">Private enquiry</p>
+      <p class="section-label section-label--light">Contact</p>
       <h1>Speak with us about a memorial ceremony, a memorial film, or a referral partnership.</h1>
-      <p>We respond privately and carefully, whether you are enquiring as a family member or a funeral director.</p>
+      <p>We respond with care and clarity, whether you are enquiring as a family member or a funeral director.</p>
     </div>
   </div>
 
@@ -40,9 +41,9 @@
         <div class="contact-intro">
           <div class="divider"></div>
           <p class="section-label">Contact</p>
-          <h2>A private, careful response to every enquiry.</h2>
+          <h2>A careful response to every enquiry.</h2>
           <p style="margin-top: 1.2rem;">
-            Whether you are enquiring for your family or as a funeral director, we reply quietly and directly with clear next steps and respectful guidance.
+            Whether you are enquiring for your family or as a funeral director, we reply directly with clear next steps and respectful guidance.
           </p>
           <div class="contact-meta">
             <div class="contact-meta__item">
@@ -50,8 +51,16 @@
               <p>Melbourne, the Mornington Peninsula, and surrounding coastal regions.</p>
             </div>
             <div class="contact-meta__item">
+              <span class="contact-meta__label">Phone</span>
+              <p><a href="tel:+61478003959" class="contact-meta__link">+61 478 003 959</a></p>
+            </div>
+            <div class="contact-meta__item">
               <span class="contact-meta__label">Reply timeframe</span>
               <p>We aim to respond to most enquiries within one business day.</p>
+            </div>
+            <div class="contact-meta__item">
+              <span class="contact-meta__label">WhatsApp</span>
+              <p><a href="https://wa.me/61478003959" class="contact-meta__link" target="_blank" rel="noreferrer">Message us on WhatsApp</a></p>
             </div>
           </div>
         </div>
@@ -101,7 +110,7 @@
             <select id="enquiryType" name="enquiryType">
               <option value="" disabled selected>Select an option</option>
               <option value="memorial-ceremony">Memorial ceremony</option>
-              <option value="private-call">Request a private call</option>
+              <option value="private-call">Request a call</option>
               <option value="funeral-director">Funeral director partnership</option>
               <option value="general">General enquiry</option>
             </select>
@@ -113,7 +122,7 @@
           </div>
 
           <button type="submit" class="btn btn--primary">Submit enquiry</button>
-          <p class="form-note">All enquiries are treated with privacy, care, and discretion.</p>
+          <p class="form-note">All enquiries are handled with care, professionalism, and a prompt response.</p>
           <div class="form-success" id="formSuccess">Thank you — we'll be in touch shortly.</div>
           <div class="form-error" id="formError">Something went wrong while sending your enquiry. Please try again in a moment.</div>
         </form>
@@ -125,7 +134,7 @@
         <div class="form-aside__copy">
           <div class="divider"></div>
           <p class="section-label">What happens next</p>
-          <p>We’ll respond privately to discuss the memorial ceremony, confirm suitability, and explain the next steps in a calm, straightforward way.</p>
+          <p>We’ll respond to discuss the memorial ceremony, confirm suitability, and explain the next steps in a calm, straightforward way.</p>
         </div>
       </aside>
     </div>
@@ -133,6 +142,10 @@
 
   <footer>
     <p class="footer__logo">Memorial Flight Co</p>
+    <div class="footer__contact">
+      <a href="tel:+61478003959">+61 478 003 959</a>
+      <a href="https://wa.me/61478003959" target="_blank" rel="noreferrer">WhatsApp</a>
+    </div>
     <ul class="footer__nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="memorial-ceremonies.html">Memorial Ceremonies</a></li>
@@ -146,6 +159,11 @@
     </ul>
     <p>Melbourne &amp; Mornington Peninsula &nbsp;·&nbsp; &copy; 2026 Memorial Flight Co</p>
   </footer>
+
+  <div class="quick-contact">
+    <a href="tel:+61478003959" class="quick-contact__link">Call</a>
+    <a href="https://wa.me/61478003959" class="quick-contact__link quick-contact__link--whatsapp" target="_blank" rel="noreferrer">WhatsApp</a>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

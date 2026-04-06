@@ -172,6 +172,28 @@ nav.scrolled .nav__logo {
   gap: 0.85rem;
 }
 
+.nav__contact {
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+nav.scrolled .nav__contact {
+  color: var(--mid);
+}
+
+.nav__contact:hover {
+  color: var(--white);
+}
+
+nav.scrolled .nav__contact:hover {
+  color: var(--charcoal);
+}
+
 .nav__links a {
   font-size: 0.78rem;
   font-weight: 500;
@@ -220,6 +242,14 @@ nav.scrolled .nav__links a:hover {
 }
 
 .nav__logo--dark {
+  color: var(--charcoal);
+}
+
+.nav__actions .nav__contact {
+  color: var(--mid);
+}
+
+.nav__actions .nav__contact:hover {
   color: var(--charcoal);
 }
 
@@ -1214,6 +1244,10 @@ textarea {
   }
 
   .nav__actions {
+    display: none;
+  }
+
+  .nav__contact {
     display: none;
   }
 
