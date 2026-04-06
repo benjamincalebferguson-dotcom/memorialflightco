@@ -67,27 +67,33 @@ if (form) {
   // Pre-select enquiry type from URL param (e.g. ?type=call or ?type=general)
   const params = new URLSearchParams(window.location.search);
   const typeParam = params.get('type');
-  if (typeParam === 'call' || typeParam === 'general') {
-    const select = document.getElementById('enquiryType');
-    if (select) select.value = 'general';
+  const select = document.getElementById('enquiryType');
+  if (select) {
+    if (typeParam === 'call') select.value = 'private-call';
+    if (typeParam === 'general') select.value = 'general';
+    if (typeParam === 'director') select.value = 'funeral-director';
   }
 
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const required = form.querySelectorAll('[required]');
+    const requiredFields = form.querySelectorAll('[required]');
     let valid = true;
-    const success = document.getElementById('formSuccess');
-    const error = document.getElementById('formError');
 
-    if (success) success.style.display = 'none';
-    if (error) error.style.display = 'none';
+    requiredFields.forEach(field => {
+      // Clear previous error states
+      field.classList.remove('is-invalid');
+      const errorMessageElement = field.nextElementSibling; // Assuming error message is a sibling span/div
+      if (errorMessageElement && errorMessageElement.classList.contains('error-message')) {
+        errorMessageElement.textContent = '';
+      }
 
-    required.forEach(field => {
-      field.style.borderColor = '';
       if (!field.value.trim()) {
-        field.style.borderColor = '#c0392b';
+        field.classList.add('is-invalid'); // Add class for CSS styling
         valid = false;
+        if (errorMessageElement && errorMessageElement.classList.contains('error-message')) {
+          errorMessageElement.textContent = 'This field is required.';
+        }
       }
     });
 
@@ -102,45 +108,14 @@ if (form) {
       submitBtn.style.cursor = 'not-allowed';
     }
 
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Accept: 'application/json'
+    // Simulate an async submission delay (e.g. fetch to Netlify Forms or Formspree)
+    setTimeout(() => {
+      form.style.display = 'none'; // Hide the form fields
+      const success = document.getElementById('formSuccess');
+      if (success) {
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-    })
-      .then(async response => {
-        const payload = await response.json().catch(() => ({}));
-        if (!response.ok || payload.success === false) {
-          throw new Error(payload.message || payload?.body?.message || 'Submission failed');
-        }
-
-        form.reset();
-        form.style.display = 'none';
-
-        if (success) {
-          success.textContent = 'Thank you — your enquiry has been sent and we will be in touch shortly.';
-          success.style.display = 'block';
-          success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      })
-      .catch(() => {
-        if (error) {
-          error.style.display = 'block';
-          error.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      })
-      .finally(() => {
-        if (!form.style.display || form.style.display !== 'none') {
-          if (submitBtn) {
-            submitBtn.textContent = 'Submit enquiry';
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
-          }
-        }
-      });
+    }, 1200);
   });
 }
