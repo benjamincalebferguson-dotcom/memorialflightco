@@ -722,6 +722,16 @@ textarea {
   color: var(--charcoal);
 }
 
+.form-error {
+  display: none;
+  margin-top: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-left: 3px solid #b65745;
+  border-radius: 18px;
+  background-color: #f6e8e2;
+  color: #6d2f22;
+}
+
 .form-aside {
   position: sticky;
   top: 7rem;

@@ -35,11 +35,20 @@
     <div class="container form-layout">
       <div class="form-wrap">
 
-        <form id="waitingListForm" novalidate>
+        <form
+          id="waitingListForm"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          novalidate
+        >
+          <input type="hidden" name="access_key" value="c8452de0-fe68-4c69-961e-54bcf929b975" />
+          <input type="hidden" name="subject" value="New Memorial Flight Co enquiry" />
+          <input type="hidden" name="from_name" value="Memorial Flight Co" />
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;" />
 
           <div class="form-group">
             <label for="fullName">Full name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Your name" required />
+            <input type="text" id="fullName" name="name" placeholder="Your name" required />
           </div>
 
           <div class="form-group">
@@ -54,7 +63,7 @@
 
           <div class="form-group">
             <label for="suburb">Suburb / Location</label>
-            <input type="text" id="suburb" name="suburb" placeholder="e.g. Frankston, Sorrento, Brighton" />
+            <input type="text" id="suburb" name="location" placeholder="e.g. Frankston, Sorrento, Brighton" />
           </div>
 
           <div class="form-group">
@@ -87,6 +96,10 @@
 
           <div class="form-success" id="formSuccess">
             Thank you — we'll be in touch shortly.
+          </div>
+
+          <div class="form-error" id="formError">
+            Something went wrong while sending your enquiry. Please try again in a moment.
           </div>
 
         </form>
