@@ -1,0 +1,10 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1024" rx="224" fill="#0e2228"/>
+  <rect x="24" y="24" width="976" height="976" rx="200" fill="none" stroke="#1d6a5a" stroke-width="6"/>
+  <rect x="60" y="60" width="904" height="904" rx="170" fill="none" stroke="#2d9a80" stroke-width="2" opacity="0.25"/>
+  <line x1="24" y1="24" x2="80" y2="80" stroke="#2d9a80" stroke-width="3" opacity="0.3"/>
+  <line x1="1000" y1="24" x2="944" y2="80" stroke="#2d9a80" stroke-width="3" opacity="0.3"/>
+  <line x1="24" y1="1000" x2="80" y2="944" stroke="#2d9a80" stroke-width="3" opacity="0.3"/>
+  <line x1="1000" y1="1000" x2="944" y2="944" stroke="#2d9a80" stroke-width="3" opacity="0.3"/>
+  <text x="512" y="660" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="580" fill="#e8f4f0" font-style="italic">M</text>
+</svg>

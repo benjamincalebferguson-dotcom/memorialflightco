@@ -1,0 +1,73 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="600" fill="#f5f8f7"/>
+
+  <!-- Header -->
+  <text x="50" y="52" font-family="Georgia, serif" font-size="11" letter-spacing="4" fill="#2d9a80">MEMORIAL FLIGHT — BRAND GUIDELINES</text>
+  <line x1="50" y1="62" x2="850" y2="62" stroke="#2d9a80" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Colour swatches -->
+  <text x="50" y="96" font-family="Georgia, serif" font-size="9" letter-spacing="3" fill="#0e2228">COLOUR PALETTE</text>
+
+  <!-- Deep teal -->
+  <rect x="50" y="108" width="80" height="60" rx="4" fill="#0e2228"/>
+  <text x="90" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#0e2228">#0e2228</text>
+  <text x="90" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#5a8070">Deep Teal</text>
+
+  <!-- Teal stroke -->
+  <rect x="148" y="108" width="80" height="60" rx="4" fill="#1d6a5a"/>
+  <text x="188" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#0e2228">#1d6a5a</text>
+  <text x="188" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#5a8070">Border</text>
+
+  <!-- Teal accent -->
+  <rect x="246" y="108" width="80" height="60" rx="4" fill="#2d9a80"/>
+  <text x="286" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#0e2228">#2d9a80</text>
+  <text x="286" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#5a8070">Teal Accent</text>
+
+  <!-- Cream -->
+  <rect x="344" y="108" width="80" height="60" rx="4" fill="#e8f4f0" stroke="#2d9a80" stroke-width="0.5"/>
+  <text x="384" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#0e2228">#e8f4f0</text>
+  <text x="384" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#5a8070">Light Cream</text>
+
+  <!-- Background light -->
+  <rect x="442" y="108" width="80" height="60" rx="4" fill="#f5f8f7" stroke="#2d9a80" stroke-width="0.5"/>
+  <text x="482" y="186" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#0e2228">#f5f8f7</text>
+  <text x="482" y="198" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#5a8070">Background</text>
+
+  <!-- Type section -->
+  <line x1="50" y1="220" x2="850" y2="220" stroke="#2d9a80" stroke-width="0.5" opacity="0.3"/>
+  <text x="50" y="244" font-family="Georgia, serif" font-size="9" letter-spacing="3" fill="#0e2228">TYPOGRAPHY</text>
+
+  <text x="50" y="278" font-family="Georgia, serif" font-size="38" letter-spacing="3" fill="#0e2228">FLIGHT</text>
+  <text x="260" y="268" font-family="Georgia, serif" font-size="11" fill="#5a8070">Georgia Serif — Primary wordmark</text>
+  <text x="260" y="282" font-family="Georgia, serif" font-size="11" fill="#5a8070">Used at large scale only. Never below 24px.</text>
+
+  <text x="50" y="316" font-family="Georgia, serif" font-size="14" letter-spacing="10" fill="#2d9a80">MEMORIAL</text>
+  <text x="260" y="312" font-family="Georgia, serif" font-size="11" fill="#5a8070">Georgia Serif — Secondary label</text>
+  <text x="260" y="326" font-family="Georgia, serif" font-size="11" fill="#5a8070">Wide tracked caps in teal. Above the rule.</text>
+
+  <text x="50" y="356" font-family="Georgia, serif" font-size="18" fill="#0e2228" font-style="italic">in memory of Arthur</text>
+  <text x="260" y="352" font-family="Georgia, serif" font-size="11" fill="#5a8070">Georgia Serif Italic — Personalised state</text>
+  <text x="260" y="366" font-family="Georgia, serif" font-size="11" fill="#5a8070">Used only when a loved one's name is entered.</text>
+
+  <!-- File index -->
+  <line x1="50" y1="390" x2="850" y2="390" stroke="#2d9a80" stroke-width="0.5" opacity="0.3"/>
+  <text x="50" y="414" font-family="Georgia, serif" font-size="9" letter-spacing="3" fill="#0e2228">FILE INDEX</text>
+
+  <text x="50" y="438" font-family="Georgia, serif" font-size="10" fill="#5a8070">01 — Primary logo, dark teal background</text>
+  <text x="50" y="454" font-family="Georgia, serif" font-size="10" fill="#5a8070">02 — Primary logo, light background</text>
+  <text x="50" y="470" font-family="Georgia, serif" font-size="10" fill="#5a8070">03 — Primary logo, transparent (dark text)</text>
+  <text x="50" y="486" font-family="Georgia, serif" font-size="10" fill="#5a8070">04 — Primary logo, transparent (light text)</text>
+  <text x="50" y="502" font-family="Georgia, serif" font-size="10" fill="#5a8070">05 — Personalised state, dark</text>
+  <text x="50" y="518" font-family="Georgia, serif" font-size="10" fill="#5a8070">06 — Personalised state, light</text>
+
+  <text x="470" y="438" font-family="Georgia, serif" font-size="10" fill="#5a8070">07 — App icon 1024×1024</text>
+  <text x="470" y="454" font-family="Georgia, serif" font-size="10" fill="#5a8070">08 — Favicon 32×32</text>
+  <text x="470" y="470" font-family="Georgia, serif" font-size="10" fill="#5a8070">09 — Nav bar lockup, dark</text>
+  <text x="470" y="486" font-family="Georgia, serif" font-size="10" fill="#5a8070">10 — Nav bar lockup, light</text>
+  <text x="470" y="502" font-family="Georgia, serif" font-size="10" fill="#5a8070">11 — Single colour, black (print/emboss)</text>
+  <text x="470" y="518" font-family="Georgia, serif" font-size="10" fill="#5a8070">12 — Single colour, white (engraving)</text>
+
+  <line x1="50" y1="546" x2="850" y2="546" stroke="#2d9a80" stroke-width="0.5" opacity="0.3"/>
+  <text x="50" y="570" font-family="Georgia, serif" font-size="9" letter-spacing="2" fill="#2d9a80">All files SVG — scalable to any size without quality loss.</text>
+  <text x="850" y="570" text-anchor="end" font-family="Georgia, serif" font-size="9" letter-spacing="1" fill="#1d6a5a">Memorial Flight © 2025</text>
+</svg>

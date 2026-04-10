@@ -1,0 +1,12 @@
+{
+  "name": "memorial-flight-co",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Memorial Flight Co static site with Stripe Checkout integration.",
+  "scripts": {
+    "start": "python3 -m http.server 4173"
+  },
+  "dependencies": {
+    "stripe": "^22.0.0"
+  }
+}

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 72" fill="none">
+
+  <!-- Phone / stream screen frame -->
+  <rect x="14" y="4" width="44" height="60" rx="7" stroke="#1a3a45" stroke-width="2"/>
+
+  <!-- Memory overlay frames (top corners — the overlaid memories family see) -->
+  <rect x="16.5" y="6.5" width="12" height="9" rx="2"
+        stroke="#c99b6d" stroke-width="1.2" fill="#c99b6d" fill-opacity="0.1"/>
+  <rect x="43.5" y="6.5" width="12" height="9" rx="2"
+        stroke="#c99b6d" stroke-width="1.2" fill="#c99b6d" fill-opacity="0.1"/>
+
+  <!-- Tiny image lines inside memory frames (suggest a photo) -->
+  <line x1="19" y1="9.5" x2="27" y2="9.5" stroke="#c99b6d" stroke-width="0.7" opacity="0.6"/>
+  <line x1="19" y1="12" x2="24" y2="12" stroke="#c99b6d" stroke-width="0.7" opacity="0.4"/>
+  <line x1="46" y1="9.5" x2="54" y2="9.5" stroke="#c99b6d" stroke-width="0.7" opacity="0.6"/>
+  <line x1="46" y1="12" x2="51" y2="12" stroke="#c99b6d" stroke-width="0.7" opacity="0.4"/>
+
+  <!-- Play / stream triangle (the live watch experience) -->
+  <path d="M 30 24 L 30 38 L 43 31 Z"
+        stroke="#1a3a45" stroke-width="1.3" stroke-linejoin="round" opacity="0.22"/>
+
+  <!-- Coastal horizon line inside screen -->
+  <line x1="16" y1="44" x2="56" y2="44"
+        stroke="#2fa8b8" stroke-width="0.9" opacity="0.55"/>
+
+  <!-- Water / ocean tone below horizon -->
+  <path d="M 16 44 L 56 44 L 56 61 Q 36 58 16 61 Z"
+        fill="#2fa8b8" fill-opacity="0.07"/>
+
+  <!-- Scatter arc in water (the ceremony moment) -->
+  <path d="M 22 51 Q 36 45 50 51"
+        stroke="#2fa8b8" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Scatter dots (ashes dispersing) -->
+  <circle cx="31" cy="48" r="1.1" fill="#2fa8b8" opacity="0.5"/>
+  <circle cx="35" cy="46" r="1.4" fill="#2fa8b8" opacity="0.65"/>
+  <circle cx="38" cy="48" r="0.9" fill="#2fa8b8" opacity="0.45"/>
+  <circle cx="33" cy="50" r="0.8" fill="#c99b6d" opacity="0.5"/>
+  <circle cx="40" cy="50" r="0.9" fill="#c99b6d" opacity="0.4"/>
+
+  <!-- Divider -->
+  <line x1="80" y1="10" x2="80" y2="62" stroke="#1a3a45" stroke-width="0.8" opacity="0.2"/>
+
+  <!-- Wordmark -->
+  <text x="94" y="33"
+        font-family="'Cormorant Garamond', 'Palatino Linotype', Palatino, Georgia, serif"
+        font-size="21"
+        font-weight="400"
+        letter-spacing="5"
+        fill="#1a3a45">MEMORIAL</text>
+
+  <text x="94" y="55"
+        font-family="'Cormorant Garamond', 'Palatino Linotype', Palatino, Georgia, serif"
+        font-size="21"
+        font-weight="400"
+        letter-spacing="5"
+        fill="#1a3a45">FLIGHT CO</text>
+
+  <!-- Warm accent rule (gold — the cinematic / memory warmth) -->
+  <line x1="94" y1="62" x2="332" y2="62" stroke="#c99b6d" stroke-width="0.8" opacity="0.35"/>
+
+</svg>

@@ -16,6 +16,7 @@
         <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
         <li><a href="memorial-ceremonies.html" class="nav__link">Memorial Ceremonies</a></li>
         <li><a href="how-it-works.html" class="nav__link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav__link">Pricing</a></li>
         <li><a href="funeral-directors.html" class="nav__link">Funeral Directors</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="contact.html" class="nav__link">Contact</a></li>
@@ -31,10 +32,29 @@
   <section class="hero hero--home">
     <div class="hero__inner">
       <p class="hero__eyebrow">Memorial Flight Co</p>
+      <div class="hero__logo-stage" data-mfc-logo data-logo-variant="hero"></div>
       <h1>A dignified memorial ceremony, beautifully carried out and thoughtfully captured.</h1>
       <p class="hero__sub">
         A private aerial memorial experience for families, arranged with care and offered through funeral directors across Melbourne and surrounding coastal regions.
       </p>
+      <form class="memorial-name-form" data-memorial-name-form>
+        <label class="memorial-name-form__label" for="lovedOneName">Enter your loved one's name</label>
+        <div class="memorial-name-form__row">
+          <input
+            id="lovedOneName"
+            name="lovedOneName"
+            type="text"
+            maxlength="40"
+            autocomplete="off"
+            placeholder="Type their name here"
+            aria-describedby="lovedOneNameHelp"
+          />
+          <button type="button" class="memorial-name-form__clear" data-clear-loved-one-name disabled>Clear</button>
+        </div>
+        <p class="memorial-name-form__help" id="lovedOneNameHelp">
+          The logo will gently personalise across the site and remain in place when you return.
+        </p>
+      </form>
       <div class="btn-group">
         <a href="contact.html?type=call" class="btn btn--outline-white">Request a Call</a>
         <a href="funeral-directors.html" class="btn btn--ghost-light">For Funeral Directors</a>
@@ -59,7 +79,7 @@
         </div>
       </div>
       <figure class="story-grid__image">
-        <img src="public/images/2EBB947F-2319-4853-A975-2A0EB82C380B.png" alt="A private memorial flight above open coastal water at golden hour." />
+        <img src="public/images/2EBB947F-2319-4853-A975-2A0EB82C380B.jpg" alt="A private memorial flight above open coastal water at golden hour." />
       </figure>
     </div>
   </section>
@@ -67,13 +87,13 @@
   <section class="section--alt visual-strip">
     <div class="container--wide visual-strip__inner" data-reveal>
       <figure class="visual-strip__panel visual-strip__panel--tall">
-        <img src="public/images/Gemini_Generated_Image_e191d6e191d6e191.png" alt="Aircraft wing above the Victorian coastline during a private memorial ceremony." />
+        <img src="public/images/Gemini_Generated_Image_e191d6e191d6e191.jpg" alt="Aircraft wing above the Victorian coastline during a private memorial ceremony." />
       </figure>
       <figure class="visual-strip__panel">
         <img src="public/images/IMG_1092.jpeg" alt="Quiet horizon over the coast." />
       </figure>
       <figure class="visual-strip__panel">
-        <img src="public/images/5A281C4B-3878-4DB0-96DA-A41A0660AEF0.png" alt="Aerial memorial ceremony imagery over open water." />
+        <img src="public/images/5A281C4B-3878-4DB0-96DA-A41A0660AEF0.jpg" alt="Aerial memorial ceremony imagery over open water." />
       </figure>
     </div>
   </section>
@@ -81,7 +101,7 @@
   <section class="section--white process-section">
     <div class="container--wide process-layout" data-reveal>
       <div class="process-layout__media">
-        <img src="public/images/Gemini_Generated_Image_nvrjxnnvrjxnnvrj.png" alt="Memorial ceremony aircraft moving above the ocean." />
+        <img src="public/images/Gemini_Generated_Image_nvrjxnnvrjxnnvrj.jpg" alt="Memorial ceremony aircraft moving above the ocean." />
       </div>
       <div class="process-layout__content">
         <div class="divider"></div>
@@ -124,28 +144,33 @@
   <section class="section--alt">
     <div class="container" data-reveal>
       <div class="divider"></div>
-      <p class="section-label">Memorial options</p>
-      <h2>Memorial options prepared with restraint and care.</h2>
-      <div class="option-grid">
-        <article class="option-card">
-          <h3>Memorial Ceremony</h3>
-          <p>A private aerial memorial ceremony arranged and carried out with careful timing, discretion, and respectful handling.</p>
+      <p class="section-label">Pricing</p>
+      <h2>Three clear offerings families can review and purchase.</h2>
+      <div class="option-grid pricing-grid">
+        <article class="option-card option-card--featured">
+          <span class="option-card__eyebrow">Signature Ceremony</span>
+          <h3>Signature Scattering at Your Chosen Location</h3>
+          <p class="option-card__price">$2,200</p>
+          <p>A premium memorial ceremony arranged for a location of your choosing, with suitability confirmed after purchase.</p>
+          <p class="option-card__combo">With Tribute Film add-on: $3,150 total.</p>
         </article>
         <article class="option-card">
-          <h3>Memorial Ceremony + Film</h3>
-          <p>Includes a professionally captured memorial film delivered afterward as a lasting record for family viewing and remembrance.</p>
+          <span class="option-card__eyebrow">Fixed Sanctuary Location</span>
+          <h3>Sorrento Memorial Sanctuary</h3>
+          <p class="option-card__price">$1,185</p>
+          <p>A streamlined memorial ceremony at the fixed Sorrento Memorial Sanctuary location.</p>
+          <p class="option-card__combo">With Tribute Film add-on: $2,135 total.</p>
         </article>
         <article class="option-card">
-          <h3>Floral Release</h3>
-          <p>An additional floral element can be incorporated to create a softer visual tribute and a more ceremonial sense of occasion.</p>
-        </article>
-        <article class="option-card">
-          <h3>Biodegradable Urn + Floral Release</h3>
-          <p>A carefully coordinated memorial option for families seeking a more complete ceremonial presentation with natural materials.</p>
+          <span class="option-card__eyebrow">Add-on</span>
+          <h3>Tribute Film</h3>
+          <p class="option-card__price">$950</p>
+          <p>Additional drone filming of the full experience, edited into a keepsake tribute film for the family.</p>
         </article>
       </div>
       <div class="btn-group">
-        <a href="memorial-ceremonies.html" class="btn btn--primary">Memorial Ceremonies</a>
+        <a href="pricing.html" class="btn btn--primary">View Pricing</a>
+        <a href="contact.html?type=purchase&package=signature" class="btn btn--nav-secondary-dark">Ask About Purchase Options</a>
       </div>
     </div>
   </section>
@@ -193,7 +218,7 @@
         </ul>
       </div>
       <figure class="trust-layout__image">
-        <img src="public/images/Gemini_Generated_Image_p8odw3p8odw3p8od.png" alt="A quiet memorial ceremony scene above open coastal water." />
+        <img src="public/images/Gemini_Generated_Image_p8odw3p8odw3p8od.jpg" alt="A quiet memorial ceremony scene above open coastal water." />
       </figure>
     </div>
   </section>
@@ -233,7 +258,7 @@
       </p>
       <div class="btn-group">
         <a href="contact.html?type=call" class="btn btn--outline-white">Request a Call</a>
-        <a href="contact.html" class="btn btn--ghost-light">Enquire About a Memorial Ceremony</a>
+        <a href="pricing.html" class="btn btn--ghost-light">View Pricing</a>
       </div>
     </div>
   </section>
@@ -242,12 +267,14 @@
     <p class="footer__logo">Memorial Flight Co</p>
     <div class="footer__contact">
       <a href="tel:+61478003959">+61 478 003 959</a>
-      <a href="https://wa.me/61478003959" target="_blank" rel="noreferrer">WhatsApp</a>
+      <a href="mailto:hello@memorialflightco.com">hello@memorialflightco.com</a>
+      <a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." target="_blank" rel="noreferrer">WhatsApp</a>
     </div>
     <ul class="footer__nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="memorial-ceremonies.html">Memorial Ceremonies</a></li>
       <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="funeral-directors.html">Funeral Directors</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -260,7 +287,7 @@
 
   <div class="quick-contact">
     <a href="tel:+61478003959" class="quick-contact__link">Call</a>
-    <a href="https://wa.me/61478003959" class="quick-contact__link quick-contact__link--whatsapp" target="_blank" rel="noreferrer">WhatsApp</a>
+    <a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." class="quick-contact__link quick-contact__link--whatsapp" target="_blank" rel="noreferrer">WhatsApp</a>
   </div>
 
   <script src="js/main.js"></script>

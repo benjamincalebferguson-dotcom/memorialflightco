@@ -1,3 +1,206 @@
+const LOVED_ONE_STORAGE_KEY = 'mf_loved_one_name'
+
+const getStoredLovedOneName = () => {
+  try {
+    const saved = localStorage.getItem(LOVED_ONE_STORAGE_KEY)
+    return saved ? saved.trim() : ''
+  } catch (error) {
+    return ''
+  }
+}
+
+const setStoredLovedOneName = name => {
+  try {
+    if (name) {
+      localStorage.setItem(LOVED_ONE_STORAGE_KEY, name)
+    } else {
+      localStorage.removeItem(LOVED_ONE_STORAGE_KEY)
+    }
+  } catch (error) {
+    // Ignore storage access issues and keep the UI responsive
+  }
+}
+
+const logoState = {
+  name: getStoredLovedOneName()
+}
+
+const escapeHtml = value =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+
+const getNameFontSize = (name, variant) => {
+  const length = name.length
+
+  if (variant === 'hero') {
+    if (length >= 14) return 30
+    if (length >= 10) return 40
+    return 52
+  }
+
+  if (length >= 14) return 18
+  if (length >= 10) return 22
+  return 28
+}
+
+const getLogoConfig = variant => {
+  if (variant === 'hero') {
+    return {
+      width: 600,
+      height: 180,
+      outerInset: 2,
+      outerRadius: 16,
+      innerInset: 10,
+      innerRadius: 12,
+      cornerLength: 16,
+      topY: 68,
+      ruleY: 86,
+      brandTopSize: 12,
+      brandTopSpacing: 9,
+      brandBottomSize: 42,
+      brandBottomSpacing: 6,
+      personalTopSize: 20,
+      personalBottomY: 136
+    }
+  }
+
+  return {
+    width: 320,
+    height: 64,
+    outerInset: 1.5,
+    outerRadius: 10,
+    innerInset: 8,
+    innerRadius: 6,
+    cornerLength: 14,
+    topY: 24,
+    ruleY: 30,
+    brandTopSize: 9,
+    brandTopSpacing: 7,
+    brandBottomSize: 22,
+    brandBottomSpacing: 4,
+    personalTopSize: 10,
+    personalBottomY: 46
+  }
+}
+
+const createLogoMarkup = (variant, name = '', animate = false) => {
+  const config = getLogoConfig(variant)
+  const hasName = Boolean(name)
+  const displayName = escapeHtml(name || 'Arthur')
+  const nameFontSize = getNameFontSize(name || 'Arthur', variant)
+  const centerX = config.width / 2
+  const state = hasName ? 'personalised' : 'brand'
+  const ariaLabel = hasName
+    ? `Memorial Flight - in memory of ${name}`
+    : 'Memorial Flight logo'
+
+  return `
+    <div class="mf-logo" data-state="${state}" ${animate ? 'data-animate="true"' : ''}>
+      <svg
+        viewBox="0 0 ${config.width} ${config.height}"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="${escapeHtml(ariaLabel)}"
+      >
+        <rect
+          x="${config.outerInset}"
+          y="${config.outerInset}"
+          width="${config.width - (config.outerInset * 2)}"
+          height="${config.height - (config.outerInset * 2)}"
+          rx="${config.outerRadius}"
+          fill="none"
+          stroke="#1d6a5a"
+          stroke-width="1.5"
+        />
+        <rect
+          x="${config.innerInset}"
+          y="${config.innerInset}"
+          width="${config.width - (config.innerInset * 2)}"
+          height="${config.height - (config.innerInset * 2)}"
+          rx="${config.innerRadius}"
+          fill="none"
+          stroke="#2d9a80"
+          stroke-width="0.5"
+          opacity="0.3"
+        />
+        <line x1="${config.outerInset}" y1="${config.outerInset}" x2="${config.outerInset + config.cornerLength}" y2="${config.outerInset + config.cornerLength}" stroke="#2d9a80" stroke-width="0.8" opacity="0.35" />
+        <line x1="${config.width - config.outerInset}" y1="${config.outerInset}" x2="${config.width - config.outerInset - config.cornerLength}" y2="${config.outerInset + config.cornerLength}" stroke="#2d9a80" stroke-width="0.8" opacity="0.35" />
+        <line x1="${config.outerInset}" y1="${config.height - config.outerInset}" x2="${config.outerInset + config.cornerLength}" y2="${config.height - config.outerInset - config.cornerLength}" stroke="#2d9a80" stroke-width="0.8" opacity="0.35" />
+        <line x1="${config.width - config.outerInset}" y1="${config.height - config.outerInset}" x2="${config.width - config.outerInset - config.cornerLength}" y2="${config.height - config.outerInset - config.cornerLength}" stroke="#2d9a80" stroke-width="0.8" opacity="0.35" />
+
+        <g class="mf-logo__text-group mf-logo__brand">
+          <text x="${centerX}" y="${config.topY}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.brandTopSize}" letter-spacing="${config.brandTopSpacing}" fill="#2d9a80">MEMORIAL</text>
+          <rect x="${variant === 'hero' ? 74 : 40}" y="${config.ruleY}" width="${variant === 'hero' ? 452 : 240}" height="0.8" rx="0.4" fill="#1d6a5a" />
+          <text x="${centerX}" y="${variant === 'hero' ? 132 : 48}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.brandBottomSize}" letter-spacing="${config.brandBottomSpacing}" fill="#e8f4f0">FLIGHT</text>
+        </g>
+
+        <g class="mf-logo__text-group mf-logo__personal">
+          <text x="${centerX}" y="${variant === 'hero' ? 66 : 23}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.personalTopSize}" fill="#2d9a80" font-style="italic">in memory of</text>
+          <text x="${centerX}" y="${config.personalBottomY}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${nameFontSize}" fill="#e8f4f0" font-style="italic">${displayName}</text>
+        </g>
+      </svg>
+    </div>
+  `
+}
+
+const logoHosts = [
+  ...document.querySelectorAll('.nav__logo'),
+  ...document.querySelectorAll('.footer__logo'),
+  ...document.querySelectorAll('[data-mfc-logo]')
+]
+
+const renderLogos = ({ animate = false } = {}) => {
+  logoHosts.forEach(host => {
+    const variant = host.dataset.logoVariant || (host.classList.contains('footer__logo') ? 'footer' : 'nav')
+    const normalizedVariant = variant === 'hero' ? 'hero' : 'nav'
+
+    host.classList.add('mf-logo-host')
+    host.innerHTML = createLogoMarkup(normalizedVariant, logoState.name, animate)
+  })
+}
+
+const lovedOneInput = document.querySelector('[data-memorial-name-form] input[name="lovedOneName"]')
+const clearLovedOneButton = document.querySelector('[data-clear-loved-one-name]')
+
+const syncLovedOneForm = () => {
+  if (lovedOneInput) {
+    lovedOneInput.value = logoState.name
+  }
+
+  if (clearLovedOneButton) {
+    clearLovedOneButton.disabled = !logoState.name
+  }
+}
+
+const updateLovedOneName = (nextName, { animate = true } = {}) => {
+  logoState.name = nextName.trim()
+  setStoredLovedOneName(logoState.name)
+  renderLogos({ animate })
+  syncLovedOneForm()
+}
+
+renderLogos()
+syncLovedOneForm()
+
+if (lovedOneInput) {
+  lovedOneInput.addEventListener('input', event => {
+    updateLovedOneName(event.target.value, { animate: true })
+  })
+}
+
+if (clearLovedOneButton) {
+  clearLovedOneButton.addEventListener('click', () => {
+    updateLovedOneName('', { animate: true })
+    if (lovedOneInput) {
+      lovedOneInput.focus()
+    }
+  })
+}
+
 // ── Nav scroll behavior ────────────────────────────────────
 const nav = document.getElementById('nav');
 
@@ -60,6 +263,48 @@ document.querySelectorAll('.faq-item h3').forEach(header => {
   }
 });
 
+// ── Stripe checkout ────────────────────────────────────────
+document.querySelectorAll('[data-checkout-form]').forEach(formEl => {
+  formEl.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    const button = formEl.querySelector('button[type="submit"]');
+    const formData = new FormData(formEl);
+    const packageType = formData.get('packageType');
+    const addTributeFilm = formData.get('addTributeFilm') === 'yes';
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = 'Redirecting...';
+      button.style.opacity = '0.7';
+      button.style.cursor = 'not-allowed';
+    }
+
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          packageType,
+          addTributeFilm
+        })
+      });
+
+      const payload = await response.json();
+
+      if (!response.ok || !payload.url) {
+        throw new Error(payload.error || 'Unable to start checkout');
+      }
+
+      window.location.href = payload.url;
+    } catch (error) {
+      window.location.href = `contact.html?type=purchase&package=${encodeURIComponent(packageType)}`;
+    }
+  });
+});
+
 // ── Waiting list form ──────────────────────────────────────
 const form = document.getElementById('waitingListForm');
 
@@ -68,13 +313,22 @@ if (form) {
   const params = new URLSearchParams(window.location.search);
   const typeParam = params.get('type');
   const select = document.getElementById('enquiryType');
+  const serviceSelect = document.getElementById('serviceOption');
+  const packageParam = params.get('package');
   if (select) {
     if (typeParam === 'call') select.value = 'private-call';
     if (typeParam === 'general') select.value = 'general';
     if (typeParam === 'director') select.value = 'funeral-director';
+    if (typeParam === 'purchase') select.value = 'memorial-ceremony';
   }
 
-  form.addEventListener('submit', e => {
+  if (serviceSelect) {
+    if (packageParam === 'signature') serviceSelect.value = 'signature-scattering';
+    if (packageParam === 'sorrento') serviceSelect.value = 'sorrento-sanctuary';
+    if (packageParam === 'tribute') serviceSelect.value = 'tribute-film';
+  }
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const requiredFields = form.querySelectorAll('[required]');
@@ -99,8 +353,13 @@ if (form) {
 
     if (!valid) return;
 
-    // Update button state to provide feedback
     const submitBtn = form.querySelector('button[type="submit"]');
+    const success = document.getElementById('formSuccess');
+    const error = document.getElementById('formError');
+
+    if (success) success.style.display = 'none';
+    if (error) error.style.display = 'none';
+
     if (submitBtn) {
       submitBtn.textContent = 'Submitting...';
       submitBtn.disabled = true;
@@ -108,14 +367,42 @@ if (form) {
       submitBtn.style.cursor = 'not-allowed';
     }
 
-    // Simulate an async submission delay (e.g. fetch to Netlify Forms or Formspree)
-    setTimeout(() => {
-      form.style.display = 'none'; // Hide the form fields
-      const success = document.getElementById('formSuccess');
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
+      form.reset();
       if (success) {
         success.style.display = 'block';
         success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-    }, 1200);
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Submit enquiry';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+      }
+    } catch (err) {
+      if (error) {
+        error.style.display = 'block';
+      }
+
+      if (submitBtn) {
+        submitBtn.textContent = 'Submit enquiry';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+      }
+    }
   });
 }

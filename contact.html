@@ -15,6 +15,7 @@
         <li><a href="index.html" class="nav__link">Home</a></li>
         <li><a href="memorial-ceremonies.html" class="nav__link">Memorial Ceremonies</a></li>
         <li><a href="how-it-works.html" class="nav__link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav__link">Pricing</a></li>
         <li><a href="funeral-directors.html" class="nav__link">Funeral Directors</a></li>
         <li><a href="faq.html" class="nav__link">FAQ</a></li>
         <li><a href="contact.html" class="nav__link nav__link--active-dark">Contact</a></li>
@@ -55,12 +56,16 @@
               <p><a href="tel:+61478003959" class="contact-meta__link">+61 478 003 959</a></p>
             </div>
             <div class="contact-meta__item">
+              <span class="contact-meta__label">Email</span>
+              <p><a href="mailto:hello@memorialflightco.com" class="contact-meta__link">hello@memorialflightco.com</a></p>
+            </div>
+            <div class="contact-meta__item">
               <span class="contact-meta__label">Reply timeframe</span>
               <p>We aim to respond to most enquiries within one business day.</p>
             </div>
             <div class="contact-meta__item">
               <span class="contact-meta__label">WhatsApp</span>
-              <p><a href="https://wa.me/61478003959" class="contact-meta__link" target="_blank" rel="noreferrer">Message us on WhatsApp</a></p>
+              <p><a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." class="contact-meta__link" target="_blank" rel="noreferrer">Message us on WhatsApp</a></p>
             </div>
           </div>
         </div>
@@ -117,24 +122,34 @@
           </div>
 
           <div class="form-group">
+            <label for="serviceOption">Preferred service</label>
+            <select id="serviceOption" name="serviceOption">
+              <option value="" selected>No specific option yet</option>
+              <option value="signature-scattering">Signature Scattering at Your Chosen Location — $2,200</option>
+              <option value="sorrento-sanctuary">Sorrento Memorial Sanctuary — $1,185</option>
+              <option value="tribute-film">Tribute Film add-on — $950</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label for="message">Message <span style="font-weight: 300; text-transform: none; letter-spacing: 0;">(optional)</span></label>
             <textarea id="message" name="message" placeholder="Tell us a little about your enquiry…"></textarea>
           </div>
 
           <button type="submit" class="btn btn--primary">Submit enquiry</button>
-          <p class="form-note">All enquiries are handled with care, professionalism, and a prompt response.</p>
+          <p class="form-note">All enquiries are handled with care, professionalism, and a prompt response. If you are enquiring after viewing pricing, we will confirm availability, suitability, and the best next step.</p>
           <div class="form-success" id="formSuccess">Thank you — we'll be in touch shortly.</div>
           <div class="form-error" id="formError">Something went wrong while sending your enquiry. Please try again in a moment.</div>
         </form>
       </div>
       <aside class="form-aside">
         <figure class="form-aside__media">
-          <img src="public/images/Gemini_Generated_Image_mxyoctmxyoctmxyo.png" alt="Memorial ceremony flight above the coastline." />
+          <img src="public/images/Gemini_Generated_Image_mxyoctmxyoctmxyo.jpg" alt="Memorial ceremony flight above the coastline." />
         </figure>
         <div class="form-aside__copy">
           <div class="divider"></div>
           <p class="section-label">What happens next</p>
-          <p>We’ll respond to discuss the memorial ceremony, confirm suitability, and explain the next steps in a calm, straightforward way.</p>
+          <p>We’ll respond to discuss the memorial ceremony, confirm suitability, explain any pricing questions, and guide the next steps in a calm, straightforward way.</p>
         </div>
       </aside>
     </div>
@@ -144,12 +159,14 @@
     <p class="footer__logo">Memorial Flight Co</p>
     <div class="footer__contact">
       <a href="tel:+61478003959">+61 478 003 959</a>
-      <a href="https://wa.me/61478003959" target="_blank" rel="noreferrer">WhatsApp</a>
+      <a href="mailto:hello@memorialflightco.com">hello@memorialflightco.com</a>
+      <a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." target="_blank" rel="noreferrer">WhatsApp</a>
     </div>
     <ul class="footer__nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="memorial-ceremonies.html">Memorial Ceremonies</a></li>
       <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="funeral-directors.html">Funeral Directors</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -162,7 +179,7 @@
 
   <div class="quick-contact">
     <a href="tel:+61478003959" class="quick-contact__link">Call</a>
-    <a href="https://wa.me/61478003959" class="quick-contact__link quick-contact__link--whatsapp" target="_blank" rel="noreferrer">WhatsApp</a>
+    <a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." class="quick-contact__link quick-contact__link--whatsapp" target="_blank" rel="noreferrer">WhatsApp</a>
   </div>
 
   <script src="js/main.js"></script>
