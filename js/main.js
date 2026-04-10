@@ -37,9 +37,9 @@ const getNameFontSize = (name, variant) => {
   const length = name.length
 
   if (variant === 'hero') {
-    if (length >= 14) return 30
-    if (length >= 10) return 40
-    return 52
+    if (length >= 14) return 26
+    if (length >= 10) return 34
+    return 44
   }
 
   if (length >= 14) return 18
@@ -50,21 +50,21 @@ const getNameFontSize = (name, variant) => {
 const getLogoConfig = variant => {
   if (variant === 'hero') {
     return {
-      width: 600,
-      height: 180,
+      width: 560,
+      height: 156,
       outerInset: 2,
       outerRadius: 16,
       innerInset: 10,
       innerRadius: 12,
       cornerLength: 16,
-      topY: 68,
-      ruleY: 86,
+      topY: 58,
+      ruleY: 74,
       brandTopSize: 12,
       brandTopSpacing: 9,
-      brandBottomSize: 42,
+      brandBottomSize: 34,
       brandBottomSpacing: 6,
-      personalTopSize: 20,
-      personalBottomY: 136
+      personalTopSize: 16,
+      personalBottomY: 115
     }
   }
 
@@ -134,12 +134,12 @@ const createLogoMarkup = (variant, name = '', animate = false) => {
 
         <g class="mf-logo__text-group mf-logo__brand">
           <text x="${centerX}" y="${config.topY}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.brandTopSize}" letter-spacing="${config.brandTopSpacing}" fill="#2d9a80">MEMORIAL</text>
-          <rect x="${variant === 'hero' ? 74 : 40}" y="${config.ruleY}" width="${variant === 'hero' ? 452 : 240}" height="0.8" rx="0.4" fill="#1d6a5a" />
-          <text x="${centerX}" y="${variant === 'hero' ? 132 : 48}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.brandBottomSize}" letter-spacing="${config.brandBottomSpacing}" fill="#e8f4f0">FLIGHT</text>
+          <rect x="${variant === 'hero' ? 70 : 40}" y="${config.ruleY}" width="${variant === 'hero' ? 420 : 240}" height="0.8" rx="0.4" fill="#1d6a5a" />
+          <text x="${centerX}" y="${variant === 'hero' ? 118 : 48}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.brandBottomSize}" letter-spacing="${config.brandBottomSpacing}" fill="#e8f4f0">FLIGHT</text>
         </g>
 
-        <g class="mf-logo__text-group mf-logo__personal">
-          <text x="${centerX}" y="${variant === 'hero' ? 66 : 23}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.personalTopSize}" fill="#2d9a80" font-style="italic">in memory of</text>
+        <g class="mf-logo__text-group mf-logo__name">
+          <text x="${centerX}" y="${variant === 'hero' ? 56 : 23}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${config.personalTopSize}" fill="#2d9a80" font-style="italic">in memory of</text>
           <text x="${centerX}" y="${config.personalBottomY}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="${nameFontSize}" fill="#e8f4f0" font-style="italic">${displayName}</text>
         </g>
       </svg>
@@ -157,9 +157,34 @@ const renderLogos = ({ animate = false } = {}) => {
   logoHosts.forEach(host => {
     const variant = host.dataset.logoVariant || (host.classList.contains('footer__logo') ? 'footer' : 'nav')
     const normalizedVariant = variant === 'hero' ? 'hero' : 'nav'
+    const existingLogo = host.querySelector('.mf-logo')
 
-    host.classList.add('mf-logo-host')
-    host.innerHTML = createLogoMarkup(normalizedVariant, logoState.name, animate)
+    if (!existingLogo) {
+      // First render — inject full markup
+      host.classList.add('mf-logo-host')
+      host.innerHTML = createLogoMarkup(normalizedVariant, logoState.name, false)
+      return
+    }
+
+    // Subsequent renders — update in place so CSS transitions fire
+    const hasName = Boolean(logoState.name)
+    const nameFontSize = getNameFontSize(logoState.name || 'Arthur', normalizedVariant)
+
+    if (animate) existingLogo.dataset.animate = 'true'
+    existingLogo.dataset.state = hasName ? 'personalised' : 'brand'
+
+    const nameText = existingLogo.querySelector('.mf-logo__name text:last-child')
+    if (nameText) {
+      nameText.textContent = hasName ? logoState.name : 'Arthur'
+      nameText.setAttribute('font-size', String(nameFontSize))
+    }
+
+    const svg = existingLogo.querySelector('svg')
+    if (svg) {
+      svg.setAttribute('aria-label', hasName
+        ? `Memorial Flight - in memory of ${logoState.name}`
+        : 'Memorial Flight logo')
+    }
   })
 }
 
@@ -172,7 +197,7 @@ const syncLovedOneForm = () => {
   }
 
   if (clearLovedOneButton) {
-    clearLovedOneButton.disabled = !logoState.name
+    clearLovedOneButton.classList.toggle('is-visible', Boolean(logoState.name))
   }
 }
 
@@ -202,13 +227,89 @@ if (clearLovedOneButton) {
 }
 
 // ── Nav scroll behavior ────────────────────────────────────
-const nav = document.getElementById('nav');
+const nav = document.getElementById('nav')
 
-if (nav && !nav.classList.contains('scrolled')) {
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+if (nav) {
+  // Inner pages hardcode class="scrolled" — keep it locked regardless of scroll
+  const isInnerPage = nav.classList.contains('scrolled')
+
+  if (!isInnerPage) {
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40)
+    }, { passive: true })
+  }
 }
+
+// ── Mobile nav ─────────────────────────────────────────────
+const NAV_LINKS = [
+  { href: 'index.html', label: 'Home' },
+  { href: 'memorial-ceremonies.html', label: 'Memorial Ceremonies' },
+  { href: 'how-it-works.html', label: 'How It Works' },
+  { href: 'pricing.html', label: 'Pricing' },
+  { href: 'funeral-directors.html', label: 'Funeral Directors' },
+  { href: 'faq.html', label: 'FAQ' },
+  { href: 'contact.html', label: 'Contact' },
+]
+
+const injectMobileNav = () => {
+  if (!nav) return
+
+  // Hamburger toggle button
+  const toggle = document.createElement('button')
+  toggle.className = 'nav__mobile-toggle'
+  toggle.setAttribute('aria-label', 'Open menu')
+  toggle.setAttribute('aria-expanded', 'false')
+  toggle.innerHTML = '<span></span><span></span><span></span>'
+  nav.appendChild(toggle)
+
+  // Full-screen panel
+  const panel = document.createElement('div')
+  panel.className = 'nav__mobile-panel'
+  panel.setAttribute('aria-hidden', 'true')
+  panel.setAttribute('role', 'dialog')
+  panel.setAttribute('aria-label', 'Navigation menu')
+  panel.innerHTML = `
+    <button class="nav__mobile-close" aria-label="Close menu">&times;</button>
+    <ul class="nav__mobile-links">
+      ${NAV_LINKS.map(l => `<li><a href="${l.href}">${l.label}</a></li>`).join('')}
+    </ul>
+    <div class="nav__mobile-actions">
+      <a href="tel:+61478003959" class="nav__contact">+61 478 003 959</a>
+      <a href="funeral-directors.html" class="btn btn--nav-secondary">For Funeral Directors</a>
+      <a href="contact.html?type=call" class="btn btn--nav-primary">Request a Call</a>
+    </div>
+  `
+  document.body.appendChild(panel)
+
+  const closeBtn = panel.querySelector('.nav__mobile-close')
+
+  const openMenu = () => {
+    toggle.setAttribute('aria-expanded', 'true')
+    toggle.classList.add('is-open')
+    panel.classList.add('is-open')
+    panel.setAttribute('aria-hidden', 'false')
+    document.body.classList.add('nav-open')
+    closeBtn.focus()
+  }
+
+  const closeMenu = () => {
+    toggle.setAttribute('aria-expanded', 'false')
+    toggle.classList.remove('is-open')
+    panel.classList.remove('is-open')
+    panel.setAttribute('aria-hidden', 'true')
+    document.body.classList.remove('nav-open')
+    toggle.focus()
+  }
+
+  toggle.addEventListener('click', openMenu)
+  closeBtn.addEventListener('click', closeMenu)
+
+  // Close on outside click (desktop safety) or Escape key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu() })
+  panel.addEventListener('click', e => { if (e.target === panel) closeMenu() })
+}
+
+injectMobileNav()
 
 // ── Section reveal animation ──────────────────────────────
 const revealItems = document.querySelectorAll('[data-reveal]');
