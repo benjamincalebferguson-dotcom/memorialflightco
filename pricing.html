@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Memorial Flight Co</title>
+  <meta name="description" content="View Memorial Flight Co ceremony pricing and purchase securely with Stripe for signature scattering, Sorrento Memorial Sanctuary, and tribute film add-ons." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav id="nav" class="scrolled">
+    <a href="index.html" class="nav__logo nav__logo--dark">Memorial Flight Co</a>
+    <div class="nav__group">
+      <ul class="nav__links nav__links--dark">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="memorial-ceremonies.html" class="nav__link">Memorial Ceremonies</a></li>
+        <li><a href="how-it-works.html" class="nav__link">How It Works</a></li>
+        <li><a href="pricing.html" class="nav__link nav__link--active-dark">Pricing</a></li>
+        <li><a href="funeral-directors.html" class="nav__link">Funeral Directors</a></li>
+        <li><a href="faq.html" class="nav__link">FAQ</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="tel:+61478003959" class="nav__contact">+61 478 003 959</a>
+        <a href="funeral-directors.html" class="btn btn--nav-secondary-dark">For Funeral Directors</a>
+        <a href="contact.html?type=call" class="btn btn--nav-primary-dark">Request a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header page-header--pricing">
+    <div class="container">
+      <p class="section-label section-label--light">Pricing</p>
+      <h1>Clear pricing for a dignified memorial ceremony and optional tribute film.</h1>
+      <p>Purchase securely with Stripe, then we confirm location details, scheduling, and next steps with care.</p>
+    </div>
+  </div>
+
+  <section class="section--white">
+    <div class="container" data-reveal>
+      <div class="divider"></div>
+      <p class="section-label">Purchase options</p>
+      <h2>Three offerings families can choose from.</h2>
+      <div class="option-grid pricing-grid">
+        <article class="option-card option-card--featured">
+          <span class="option-card__eyebrow">Signature Ceremony</span>
+          <h3>Signature Scattering at Your Chosen Location</h3>
+          <p class="option-card__price">$2,200</p>
+          <p class="option-card__meta">One-time purchase</p>
+          <p>A premium memorial ceremony arranged for a location of your choosing, subject to location suitability, weather, and operational review.</p>
+          <ul class="option-card__list">
+            <li>Planning and memorial coordination</li>
+            <li>Location review and ceremony scheduling</li>
+            <li>Private viewing link where appropriate</li>
+          </ul>
+          <p class="option-card__combo">With Tribute Film add-on: $3,150 total.</p>
+          <form class="purchase-form" data-checkout-form>
+            <input type="hidden" name="packageType" value="signature" />
+            <div class="purchase-form__options">
+              <label class="purchase-form__toggle">
+                <input type="checkbox" name="addTributeFilm" value="yes" />
+                <span>
+                  <strong>Add Tribute Film +$950</strong>
+                  Includes additional drone filming of the full experience and a delivered tribute film.
+                </span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Purchase with Stripe</button>
+            <p class="purchase-form__note">If checkout cannot load, we will fall back to the contact page with this option pre-filled.</p>
+          </form>
+        </article>
+
+        <article class="option-card">
+          <span class="option-card__eyebrow">Fixed Sanctuary Location</span>
+          <h3>Sorrento Memorial Sanctuary</h3>
+          <p class="option-card__price">$1,185</p>
+          <p class="option-card__meta">One-time purchase</p>
+          <p>A memorial ceremony at the fixed Sorrento Memorial Sanctuary location for families seeking a simpler, more streamlined arrangement.</p>
+          <ul class="option-card__list">
+            <li>Fixed-location ceremony planning</li>
+            <li>Streamlined scheduling and coordination</li>
+            <li>Respectful ceremony delivery</li>
+          </ul>
+          <p class="option-card__combo">With Tribute Film add-on: $2,135 total.</p>
+          <form class="purchase-form" data-checkout-form>
+            <input type="hidden" name="packageType" value="sorrento" />
+            <div class="purchase-form__options">
+              <label class="purchase-form__toggle">
+                <input type="checkbox" name="addTributeFilm" value="yes" />
+                <span>
+                  <strong>Add Tribute Film +$950</strong>
+                  Includes additional drone filming of the full experience and a delivered tribute film.
+                </span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Purchase with Stripe</button>
+          </form>
+        </article>
+
+        <article class="option-card">
+          <span class="option-card__eyebrow">Add-on</span>
+          <h3>Tribute Film</h3>
+          <p class="option-card__price">$950</p>
+          <p class="option-card__meta">Additional to either ceremony</p>
+          <p>An optional filmed tribute that includes additional drone coverage of the memorial experience and a final keepsake film delivered afterward.</p>
+          <ul class="option-card__list">
+            <li>Additional drone filming of the full experience</li>
+            <li>Edited tribute film for family viewing</li>
+            <li>Can be added to either ceremony option</li>
+          </ul>
+          <form class="purchase-form" data-checkout-form>
+            <input type="hidden" name="packageType" value="tribute" />
+            <button type="submit" class="btn btn--primary btn--block">Purchase Add-on with Stripe</button>
+          </form>
+        </article>
+      </div>
+      <p class="pricing-note"><strong>Please note:</strong> chosen-location bookings remain subject to weather, safety, and location suitability. If any adjustment is needed after purchase, we will contact you directly to confirm the best next step.</p>
+    </div>
+  </section>
+
+  <section class="section--alt">
+    <div class="container detail-grid" data-reveal>
+      <article class="detail-block">
+        <h3>Secure checkout</h3>
+        <p>Payments are handled through Stripe so families can purchase in a familiar, secure checkout flow.</p>
+      </article>
+      <article class="detail-block">
+        <h3>Follow-up after purchase</h3>
+        <p>After payment, we reach out personally to confirm scheduling, logistics, and any special requests.</p>
+      </article>
+      <article class="detail-block">
+        <h3>Tribute film flexibility</h3>
+        <p>The tribute film can be added to either ceremony option if the family wants the experience captured more fully.</p>
+      </article>
+      <article class="detail-block">
+        <h3>Need help deciding?</h3>
+        <p>If you are unsure which ceremony is most suitable, contact us and we can guide you before purchase.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta__inner" data-reveal>
+      <div class="divider" style="margin: 0 auto 1.5rem;"></div>
+      <p class="section-label section-label--light">Need guidance first?</p>
+      <h2>We can help you choose the right ceremony and tribute option before you purchase.</h2>
+      <div class="btn-group">
+        <a href="contact.html?type=call" class="btn btn--outline-white">Request a Call</a>
+        <a href="contact.html" class="btn btn--ghost-light">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer__logo">Memorial Flight Co</p>
+    <div class="footer__contact">
+      <a href="tel:+61478003959">+61 478 003 959</a>
+      <a href="mailto:hello@memorialflightco.com">hello@memorialflightco.com</a>
+      <a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." target="_blank" rel="noreferrer">WhatsApp</a>
+    </div>
+    <ul class="footer__nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="memorial-ceremonies.html">Memorial Ceremonies</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="funeral-directors.html">Funeral Directors</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="service-areas.html">Service Areas</a></li>
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+    <p>Melbourne &amp; Mornington Peninsula &nbsp;·&nbsp; &copy; 2026 Memorial Flight Co</p>
+  </footer>
+
+  <div class="quick-contact">
+    <a href="tel:+61478003959" class="quick-contact__link">Call</a>
+    <a href="https://wa.me/61478003959?text=Hi%20Memorial%20Flight%20Co%2C%20I%27d%20like%20to%20enquire%20about%20a%20memorial%20flight." class="quick-contact__link quick-contact__link--whatsapp" target="_blank" rel="noreferrer">WhatsApp</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
